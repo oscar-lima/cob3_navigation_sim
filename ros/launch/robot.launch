@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<launch>
+
+	<!-- get robot name from ROBOT environment variable  -->
+	<arg name="robot" default="$(optenv ROBOT !!NO_ROBOT_SET!!)"/>
+	
+	<!-- get robot environment from ROBOT_ENV environment variable  -->
+	<arg name="robot_env" default="$(optenv ROBOT_ENV !!NO_ROBOT_ENV_SET!!)"/>
+
+	<!-- bringup all needed componentes for 2d navigation simulation with stdr for youbot -->
+	
+	<!-- bringup stdr gui with youbot config for robot0 -->
+	<include file="$(find cob3_navigation_sim)/ros/launch/stdr_gui_bringup.launch" />
+	
+	<!-- select environment map (yaml file) -->
+	<node pkg="stdr_server" type="stdr_server_node" name="stdr_server" 
+	output="screen" args="$(find mcr_default_env_config)/$(arg robot_env)/map.yaml" >
+		<remap from="/map" to="/map_ground_truth"/>
+	</node>
+
+	<!-- spawn robot (via robot handler) -->
+	<node pkg="stdr_robot" type="robot_handler" name="$(anon robot_spawn)"
+	args="add $(find cob3_navigation_sim)/ros/config/$(arg robot).xml 8.0 10.0 0.0" />
+	
+	<!-- publish all needed frames for robot0 -->
+	<include file="$(find cob3_navigation_sim)/ros/launch/stdr_common.launch" />
+
+</launch>

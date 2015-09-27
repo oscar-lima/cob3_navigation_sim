@@ -1,0 +1,75 @@
+robot:
+  robot_specifications:
+    - footprint:
+        footprint_specifications:
+          radius: 0.5
+          points: 
+            - point:
+                x: 0.45
+                y: 0.2
+            - point:
+                x: 0.3
+                y: 0.35
+            - point:
+                x: -0.3
+                y: 0.35
+            - point:
+                x: -0.45
+                y: 0.2
+            - point:
+                x: -0.45
+                y: -0.2
+            - point:
+                x: -0.3
+                y: -0.35
+            - point:
+                x: 0.3
+                y: -0.35
+            - point:
+                x: 0.45
+                y: -0.2
+                
+    - initial_pose:
+        x: 0
+        y: 0
+        theta: 0
+        
+    - kinematic:
+        kinematic_specificacions:
+          kinematic_model: omni
+            
+    - laser:
+        laser_specifications:
+          max_angle: 1.361357
+          min_angle: -1.3526
+          max_range: 8.0            # warning field
+          min_range: 0.0199         # to be revised
+          num_rays: 310
+          frequency: 12
+          frame_id: base_laser_front_link
+          pose:
+            x: 0.4
+            y: 0
+            theta: 0
+          noise:
+            noise_specifications:
+              noise_mean: 0.0
+              noise_std: 0.05
+              
+    - laser:
+        laser_specifications:
+          max_angle: 1.361357
+          min_angle: -1.3526
+          max_range: 8.0            # warning field
+          min_range: 0.0199         # to be revised
+          num_rays: 310
+          frequency: 12
+          frame_id: base_laser_rear_link
+          pose:
+            x: -0.4
+            y: 0
+            theta: 3.14159
+          noise:
+            noise_specifications:
+              noise_mean: 0.0
+              noise_std: 0.05

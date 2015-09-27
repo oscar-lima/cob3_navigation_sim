@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+
+	<!-- publish map frame -->
+	<node pkg="tf" type="static_transform_publisher" name="world2map" 
+	args="0 0 0 0 0 0  world map 100" />
+	
+	<!-- publish base_footprint frame -->
+	<node pkg="tf" type="static_transform_publisher" name="base_footprint_frame_pub" 
+	args="0 0 0 0 0 0  robot0 base_footprint 100" />
+
+	<!-- publish base_link frame -->
+	<node pkg="tf" type="static_transform_publisher" name="base_link_frame_pub" 
+	args="0 0 0 0 0 0  base_footprint base_link 100" />
+	
+	<!-- publish hokuyo rear base_laser_rear_link frame -->
+	<node pkg="tf" type="static_transform_publisher" name="hokuyo_rear_frame_pub" 
+	args="0 0 0 0 0 0  robot0_base_laser_rear_link base_laser_rear_link 100" />
+	
+	<!-- publish hokuyo front base_laser_front_link frame -->
+	<node pkg="tf" type="static_transform_publisher" name="hokuyo_front_frame_pub" 
+	args="0 0 0 0 0 0  robot0_base_laser_front_link base_laser_front_link 100" />
+	
+</launch>

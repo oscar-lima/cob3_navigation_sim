@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+
+	<!-- robot manager (nodelet) -->
+	<node pkg="nodelet" type="nodelet" name="robot_manager"  args="manager" > 
+        <remap from="/robot0/cmd_vel" to="/base_controller/command"/>
+		<remap from="/robot0/base_laser_rear_link" to="/scan_rear"/>
+		<remap from="/robot0/base_laser_front_link" to="/scan_front"/>
+		<remap from="/robot0/odom" to="/odom_combined"/>
+		<remap from="/map" to="/map_ground_truth"/>
+	</node>
+	
+	<!-- simulator gui -->
+	<node name="stdr_gui" pkg="stdr_gui" type="stdr_gui_node" >
+		<remap from="/robot0/cmd_vel" to="/base_controller/command" />
+		<remap from="/robot0/base_laser_rear_link" to="/scan_rear" />
+		<remap from="/robot0/base_laser_front_link" to="/scan_front" />
+		<remap from="/map" to="/map_ground_truth" />
+	</node>
+
+</launch>

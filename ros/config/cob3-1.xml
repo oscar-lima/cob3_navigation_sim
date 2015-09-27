@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<robot>
+    <robot_specifications>
+        <footprint>
+        <footprint_specifications>
+            <radius> 0.2 </radius>
+            <points>
+                <point> <x> 0.45 </x> <y> 0.2 </y> </point>
+                <point> <x> 0.3 </x> <y> 0.35 </y> </point>
+                <point> <x> -0.3 </x> <y> 0.35 </y> </point>
+                <point> <x> -0.45 </x> <y> 0.2 </y> </point>
+                <point> <x> -0.45 </x> <y> -0.2 </y> </point>
+                <point> <x> -0.3 </x> <y> -0.35 </y> </point>
+                <point> <x> 0.3 </x> <y> -0.35 </y> </point>
+                <point> <x> 0.45 </x> <y> -0.2 </y> </point>
+            </points>
+        </footprint_specifications>
+        </footprint>
+        
+        <initial_pose>
+        <x> 0 </x>
+        <y> 0 </y>
+        <theta> 0 </theta>
+        </initial_pose>
+        
+        <!-- kinematic model : omnidirectional -->
+        <kinematic>
+            <kinematic_specifications>
+                <kinematic_model>omni</kinematic_model>
+            </kinematic_specifications>
+        </kinematic>
+        
+        <!-- front laser scanner -->
+        <laser>
+            <laser_specifications>
+                <max_angle> 1.361357 </max_angle>
+                <min_angle> -1.3526 </min_angle>
+                <max_range> 8.0 </max_range>              <!-- warning field-->
+                <min_range> 0.0199 </min_range>
+                <num_rays> 310 </num_rays>
+                <frequency> 12 </frequency>
+                <frame_id> base_laser_front_link </frame_id>
+                <pose>
+                    <x> 0.4 </x>
+                    <y> 0 </y>
+                    <theta> 0 </theta>
+                </pose>
+                <noise>
+                    <noise_specifications>
+                        <noise_mean>0.1</noise_mean>
+                        <noise_std>0.01</noise_std>
+                    </noise_specifications>
+                </noise>
+            </laser_specifications>
+        </laser>
+        
+        <!-- rear laser scanner -->
+        <laser>
+            <laser_specifications>
+                <max_angle> 1.361357 </max_angle>
+                <min_angle> -1.3526 </min_angle>
+                <max_range> 8.0 </max_range>              <!-- warning field-->
+                <min_range> 0.0199 </min_range>
+                <num_rays> 310 </num_rays>
+                <frequency> 12 </frequency>
+                <frame_id> base_laser_rear_link </frame_id>
+                <pose>
+                    <x> -0.4 </x>
+                    <y> 0 </y>
+                    <theta> 3.14159 </theta>
+                </pose>
+                <noise>
+                    <noise_specifications>
+                        <noise_mean>0.1</noise_mean>
+                        <noise_std>0.01</noise_std>
+                    </noise_specifications>
+                </noise>
+            </laser_specifications>
+        </laser>
+        
+    </robot_specifications>
+</robot>
